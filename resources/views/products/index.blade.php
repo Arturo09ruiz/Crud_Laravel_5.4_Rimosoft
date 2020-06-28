@@ -21,8 +21,8 @@
                     <th> <strong>{{ $product->name }}</strong>
                         {{ $product->short }}
                     </th>
-                    <th>Ver</th>
-                    <th>Editar</th>
+                    <th><a href="{{ route('products.show', $product->id) }}">Ver</a></th>
+                    <th><a href="{{ route('products.edit', $product->id) }}">Editar</a></th>
                     <th>Borrar</th>
                 </tr>
                 @endforeach
