@@ -12,7 +12,8 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+
+$factory->define(Crud\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -20,5 +21,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+
+$factory->define(Crud\Product::class, function (Faker\Generator $faker) {
+
+    return [
+        'name'  => $faker->text(5),
+        'short' => $faker->text(140),
+        'body'  => $faker->text(900),
     ];
 });
