@@ -4,6 +4,7 @@ namespace Crud\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Crud\Product;
+use Crud\Http\Requests\ProductRequest;
 
 
 class ProductController extends Controller
@@ -11,6 +12,14 @@ class ProductController extends Controller
     public function index (){
         $products = Product::orderBy('id','DESC')->paginate();
         return view('products.index', compact('products'));
+    }
+
+    public function store(ProductRequest $request){
+        return'Producto Guardado';
+    }
+
+    public function update(ProductRequest $request, $id){
+        return'Producto Actualizado'. $id ;
     }
 
     public function create (){
